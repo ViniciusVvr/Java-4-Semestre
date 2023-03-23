@@ -1,0 +1,117 @@
+package Pacoteatv;
+
+import java.util.Scanner;
+
+import java.util.ArrayList;
+
+public class Atvidade2 {
+
+	public static void main(String[] args) {
+
+		int nInicial;
+		int nFinal;
+		int escolha;
+
+		Scanner entradaDados = new Scanner(System.in);
+
+		System.out.println("Me diga o número inicial(0 - 500): ");
+		nInicial = entradaDados.nextInt();
+
+		while (nInicial < 0 || nInicial > 500) {
+			System.out.println("Valor invalido!");
+			System.out.println("Me diga o número inicial(0 - 500): ");
+			nInicial = entradaDados.nextInt();
+		}
+
+		System.out.println("Me diga o número final(100 - 1000): ");
+		nFinal = entradaDados.nextInt();
+
+		while (nFinal < 100 || nFinal > 1000) {
+			System.out.println("Valor invalido!");
+			System.out.println("Me diga o número Final(100 - 1000): ");
+			nFinal = entradaDados.nextInt();
+		}
+
+		while (nInicial > nFinal) {
+
+			System.out.println("Digite um valor valido!");
+			System.out.println("Me diga o número final(100 - 1000): ");
+			nFinal = entradaDados.nextInt();
+		}
+
+		while (nInicial == nFinal) {
+			System.out.println("Por favor, digite valores distintos!");
+			System.out.println("Me diga o número final(100 - 1000): ");
+			nFinal = entradaDados.nextInt();
+		}
+
+		System.out.println(
+				"Digite '1' para exibir os pares | Digite '2' para exibir os impares | Digite '3' para exibir pares e impares ");
+		escolha = entradaDados.nextInt();
+		while (escolha != 1 && escolha != 2 && escolha != 3) {
+			System.out.println("Valor invalido!");
+			System.out.println(
+					"Digite '1' para exibir os pares | Digite '2' para exibir os impares | Digite '3' para exibir pares e impares ");
+			escolha = entradaDados.nextInt();
+		}
+
+		if (escolha == 1) {
+
+			funcPar(nInicial, nFinal);
+		} else if (escolha == 2) {
+			funcImpar(nInicial, nFinal);
+		} else if (escolha == 3) {
+			funcAmbos(nInicial, nFinal);
+		}
+	}
+
+	// funções
+
+	public static void funcPar(int nInicial, int nFinal) {
+
+		int auxPar = nInicial;
+
+		System.out.println("Os numeros pares entre " + nInicial + " e " + nFinal + "  são: ");
+
+		while (auxPar <= nFinal) {
+			if (auxPar % 2 == 0) {
+				System.out.println(auxPar);
+
+			}
+			auxPar++;
+		}
+	}
+
+	public static void funcImpar(int nInicial, int nFinal) {
+		System.out.println("Os numeros impares entre " + nInicial + " e " + nFinal + "  são: ");
+		while (nInicial <= nFinal) {
+			if (nInicial % 2 != 0) {
+				System.out.println(nInicial);
+			}
+			nInicial++;
+		}
+	}
+
+	public static void funcAmbos(int nInicial, int nFinal) {
+		int auxPar = nInicial;
+
+		System.out.println("Os numeros pares entre " + nInicial + " e " + nFinal + "  são: ");
+
+		while (auxPar <= nFinal) {
+			if (auxPar % 2 == 0) {
+				System.out.println(auxPar);
+
+			}
+			auxPar++;
+		}
+		System.out.println(" ");
+
+		System.out.println("Os numeros impares entre " + nInicial + " e " + nFinal + "  são: ");
+		while (nInicial <= nFinal) {
+			if (nInicial % 2 != 0) {
+				System.out.println(nInicial);
+			}
+			nInicial++;
+		}
+	}
+}
